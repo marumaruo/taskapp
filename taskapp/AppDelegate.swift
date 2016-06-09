@@ -16,7 +16,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //通知許可
+        let settings = UIUserNotificationSettings(forTypes: [UIUserNotificationType.Alert, UIUserNotificationType.Sound], categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+        
+        //通知起動かどうか判断
+        if let notification = launchOptions?[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification {
+            
+            //通知領域から削除
+            application.cancelLocalNotification(notification)
+        }
+        
         return true
+    }
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification){
+        //フォアグラウンド中に通知を受信
+        if application.applicationState == UIApplicationState.Active {
+            //アラート表示
+            let alertController = UIAlertController(title: "時間です", message: notification.alertBody, preferredStyle: .Alert)
+            let defaultAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+            alertController.addAction(defaultAction)
+            
+            window?.rootViewController!.presentViewController(alertController, animated: true, completion: nil)
+            
+        } else {
+            //バックグラウンド時に通知が届いたらログに出す
+            print("\(notification.alertBody)")
+        }
+        
+        //通知領域から削除
+        application.cancelLocalNotification(notification)
     }
 
     func applicationWillResignActive(application: UIApplication) {

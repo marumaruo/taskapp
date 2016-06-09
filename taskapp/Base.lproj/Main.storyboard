@@ -90,24 +90,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qie-8u-pPC">
-                                <rect key="frame" x="20" y="30" width="68" height="21"/>
+                                <rect key="frame" x="20" y="74" width="68" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hEN-xf-Wu7">
-                                <rect key="frame" x="20" y="61" width="560" height="21"/>
+                                <rect key="frame" x="20" y="105" width="560" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内容" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1pU-jc-CkB">
-                                <rect key="frame" x="20" y="92" width="34" height="21"/>
+                                <rect key="frame" x="20" y="136" width="34" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4yp-Hs-pFd">
-                                <rect key="frame" x="20" y="123" width="560" height="120"/>
+                                <rect key="frame" x="20" y="167" width="560" height="120"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="B9h-cZ-mPS"/>
@@ -117,7 +117,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="xKZ-tp-uQb">
-                                <rect key="frame" x="20" y="253" width="560" height="120"/>
+                                <rect key="frame" x="20" y="297" width="560" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="4Xn-Nk-gr6"/>
                                 </constraints>
@@ -145,7 +145,7 @@
                     </view>
                     <connections>
                         <outlet property="contentsTextView" destination="4yp-Hs-pFd" id="jJj-Bw-dl4"/>
-                        <outlet property="dataPicker" destination="xKZ-tp-uQb" id="rU6-Ec-0ef"/>
+                        <outlet property="datePicker" destination="xKZ-tp-uQb" id="wa2-TQ-hWD"/>
                         <outlet property="titleTextField" destination="hEN-xf-Wu7" id="miU-I8-SJQ"/>
                     </connections>
                 </viewController>
