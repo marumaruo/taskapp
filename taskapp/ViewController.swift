@@ -9,17 +9,21 @@
 import UIKit
 import RealmSwift
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var uiSearchBar: UISearchBar!
     
     let realm = try! Realm()
-    
-    let taskArray = try! Realm().objects(Task).sorted("date", ascending: false)
+//    var taskArray = try! Realm().objects(Task).filter("category = 'test'")
+    var taskArray = try! Realm().objects(Task)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        uiSearchBar.delegate =  self
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -102,6 +106,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
             }
         }
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        print("検索\(uiSearchBar.text!)")
+        print("category = 'uiSearchBar.text!'")
+
+        if uiSearchBar.text!.isEmpty {taskArray = try! Realm().objects(Task)
+        
+        } else{taskArray = try! Realm().objects(Task).filter("category contains '\(uiSearchBar.text!)'")}
+            
+            self.tableView.reloadData()
     }
     
 
